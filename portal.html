@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+  // Redirect to login if not authenticated
+  if (!localStorage.getItem("loggedInUser")) {
+    window.location.href = "login.html";
+  }
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comboni Summer Camp - Student Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: #1d3557;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav h1 {
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #f1faee;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+    }
+
+    .container h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #1d3557;
+      margin-bottom: 1.5rem;
+    }
+
+    .track {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .track:hover {
+      transform: translateY(-5px);
+    }
+
+    .track h3 {
+      color: #457b9d;
+      margin-bottom: 0.5rem;
+    }
+
+    .track p {
+      color: #555;
+    }
+
+    .track a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #1d3557;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .track a:hover {
+      background: #457b9d;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+    .welcome-text {
+      font-size: 1.5em;
+      font-weight: 600;
+      color: #333;
+      background-color: #e3f2fd;
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.1);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      display: inline-block;
+}
+
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h1>Comboni Summer Camp</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+  </nav>
+  <center><p class="welcome-text">Welcome, <span id="userName"></span> 👋</p></center>
+
+
+<script>
+  document.getElementById('userName').textContent = localStorage.getItem("loggedInUser");
+</script>
+
+
+  <div class="container">
+    <h2>Student Material Portal</h2>
+
+    <div class="track">
+      <h3>Frontend Development</h3>
+      <p>Explore modern UI/UX, HTML5, CSS3, and JavaScript to build interactive web pages.</p>
+      <a href="https://drive.google.com/drive/folders/11HzdmY5vwJMR_iX-Af8Gj6tmiXUA84bu" target="_blank">Access Materials</a>
+    </div>
+
+    <div class="track">
+      <h3>Backend Development</h3>
+      <p>Dive into server-side logic, databases, and API integration using PHP and MySQL.</p>
+      <a href="https://drive.google.com/drive/folders/1WwTIGtUajDDZPqHaWH_AFqD9G8yO9Wpd" target="_blank">Access Materials</a>
+    </div>
+
+    <div class="track">
+      <h3>Full Stack Development</h3>
+      <p>Combine both frontend and backend skills to become a complete web developer.</p>
+      <a href="https://drive.google.com/drive/folders/17JQjzolbNNg5mZu7U4kWtENB1ENtskCK" target="_blank">Access Materials</a>
+    </div>
+
+    <div class="track">
+      <h3>Python Programming</h3>
+      <p>Learn the fundamentals of Python, from syntax and data structures to building scripts.</p>
+      <a href="https://drive.google.com/drive/folders/1JJjtcfJv1yo4gBQCHW6ksNjHnQm7Y5I6" target="_blank">Access Materials</a>
+    </div>
+  </div>
+
+  <script>
+  function logout() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+  }
+</script>
+
+</body>
+
+</html>
